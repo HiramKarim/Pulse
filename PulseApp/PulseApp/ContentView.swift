@@ -45,7 +45,7 @@ struct Home: View {
                         }
                     }
                     
-                    Text("ModyChat")
+                    Text("Pulse Chat")
                         .font(.title2)
                         .fontWeight(.semibold)
                 }
@@ -55,13 +55,69 @@ struct Home: View {
                 
                 HStack(spacing: 20) {
                     ForEach(tabs,id: \.self) { title in
-                        
+                        TabButton(selectedTab: $selectedTab, title: title, animation: animation)
                     }
                 }
+                .padding()
+                .background(Color.white.opacity(0.08))
+                .cornerRadius(15)
+                .padding(.vertical)
+                
+            }
+            .padding(.bottom)
+            .background(Color("top"))
+            .clipShape(CustomerCorner(corner: .bottomLeft, size: 65))
+            
+            ZStack {
+                
+                Color("top")
+                Color(.white)
+                    .clipShape(CustomerCorner(corner: .topRight, size: 65))
+                
+                ScrollView(.vertical, showsIndicators: false, content: {
+                    VStack(spacing: 20) {
+                        HStack {
+                            Text("All Chats")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Spacer(minLength: 0)
+                            Button(action:{
+                                
+                            }) {
+                                Image(systemName: "slider.horizontal.3")
+                                    .font(.system(size: 22))
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .padding([.horizontal, .top])
+                        .padding(.horizontal, 15)
+                        
+                        ForEach(data,id: \.groupName){ gData in
+                            // group name
+                            HStack {
+                                Text(gData.groupName)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                Spacer(minLength: 0)
+                            }
+                            .padding(.horizontal)
+                            
+                            // group data
+                            
+                            ForEach(gData.groupData) { chatData in
+                                //chat view
+                                ChatView(chatData: chatData)
+                            }
+                        }
+                    }
+                })
                 
             }
             
         }
+        //.background(Color("bg").ignoresSafeArea(.all, edges: .all))
+        //.ignoresSafeArea(.all, edges: .top)
+        
         
     }
 }
