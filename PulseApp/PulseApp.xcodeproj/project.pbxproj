@@ -13,6 +13,7 @@
 		1F77702825B0042800FD3339 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F77702725B0042800FD3339 /* Preview Assets.xcassets */; };
 		1F77703325B0042900FD3339 /* PulseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77703225B0042900FD3339 /* PulseAppTests.swift */; };
 		1F77703E25B0042900FD3339 /* PulseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F77703D25B0042900FD3339 /* PulseAppUITests.swift */; };
+		1F9B5C4725B161CE009A8DF1 /* ChatMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B5C4625B161CD009A8DF1 /* ChatMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		1F77703925B0042900FD3339 /* PulseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F77703D25B0042900FD3339 /* PulseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAppUITests.swift; sourceTree = "<group>"; };
 		1F77703F25B0042900FD3339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9B5C4625B161CD009A8DF1 /* ChatMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				1F77702025B0042500FD3339 /* PulseAppApp.swift */,
 				1F77702225B0042500FD3339 /* ContentView.swift */,
+				1F9B5C4625B161CD009A8DF1 /* ChatMessageView.swift */,
 				1F77702425B0042800FD3339 /* Assets.xcassets */,
 				1F77702925B0042800FD3339 /* Info.plist */,
 				1F77702625B0042800FD3339 /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F77702325B0042500FD3339 /* ContentView.swift in Sources */,
+				1F9B5C4725B161CE009A8DF1 /* ChatMessageView.swift in Sources */,
 				1F77702125B0042500FD3339 /* PulseAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -430,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hcdev.PulseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,7 +456,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hcdev.PulseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
