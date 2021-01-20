@@ -60,6 +60,21 @@ class LoginVC: UIViewController {
         return tf
     }()
     
+    private let createAccountLinkButton: UIButton = {
+        let button = UIButton(type: UIButton.ButtonType.system)
+        
+        let attributeTitle = NSMutableAttributedString(string: "Don't have an account?",
+                                                       attributes: [.font: UIFont.systemFont(ofSize: 16),
+                                                                    .foregroundColor: UIColor.white])
+        attributeTitle.append(NSAttributedString(string: " Sign Up",
+                                                 attributes: [.font: UIFont.boldSystemFont(ofSize: 16),
+                                                              .foregroundColor: UIColor.white]))
+        
+        button.setAttributedTitle(attributeTitle, for: .normal)
+        
+        return button
+    }()
+    
     //MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
@@ -73,8 +88,6 @@ class LoginVC: UIViewController {
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        
-        self.view.backgroundColor = .systemPurple
         
         configureGradientLayerOnView()
         
@@ -98,6 +111,12 @@ class LoginVC: UIViewController {
                      paddingTop: 32,
                      paddingLeft: 32,
                      paddingRight: 32)
+        
+        self.view.addSubview(createAccountLinkButton)
+        createAccountLinkButton.centerX(inView: self.view)
+        createAccountLinkButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
+                                       paddingBottom: 20)
+        createAccountLinkButton.addTarget(self, action: #selector(goToSignupButtonPressed), for: .touchUpInside)
     }
     
     func configureGradientLayerOnView() {
@@ -108,4 +127,8 @@ class LoginVC: UIViewController {
         gradient.frame = self.view.frame
     }
     
+    //MARK: - SELECTOR
+    @objc func goToSignupButtonPressed() {
+        navigationController?.pushViewController(SignupVC(), animated: true)
+    }
 }
