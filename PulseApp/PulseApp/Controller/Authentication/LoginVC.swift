@@ -36,6 +36,8 @@ class LoginVC: UIViewController {
         button.setTitleColor(.systemBlue, for: .normal)
         button.backgroundColor = .white
         button.setHeight(height: 50)
+        button.isEnabled = false
+        button.alpha = 0.5
         return button
     }()
     
@@ -75,6 +77,8 @@ class LoginVC: UIViewController {
         return button
     }()
     
+    var loginVM = LoginVM()
+    
     //MARK: - LIFE CYCLE
     
     override func viewDidLoad() {
@@ -84,6 +88,25 @@ class LoginVC: UIViewController {
     }
     
     //MARK: - HELPERS
+    
+    @objc func checkFormStatus() {
+        if loginVM.formIsValid {
+            loginButton.isEnabled = true
+            loginButton.alpha = 1
+        } else {
+            loginButton.isEnabled = false
+            loginButton.alpha = 0.5
+        }
+    }
+    
+    @objc func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            loginVM.email = sender.text
+        } else {
+            loginVM.password = sender.text
+        }
+        checkFormStatus()
+    }
     
     func configureUI() {
         navigationController?.navigationBar.isHidden = true
@@ -117,6 +140,12 @@ class LoginVC: UIViewController {
         createAccountLinkButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
                                        paddingBottom: 20)
         createAccountLinkButton.addTarget(self, action: #selector(goToSignupButtonPressed), for: .touchUpInside)
+        
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     func configureGradientLayerOnView() {
@@ -130,5 +159,9 @@ class LoginVC: UIViewController {
     //MARK: - SELECTOR
     @objc func goToSignupButtonPressed() {
         navigationController?.pushViewController(SignupVC(), animated: true)
+    }
+    
+    @objc func handleLogin() {
+        
     }
 }

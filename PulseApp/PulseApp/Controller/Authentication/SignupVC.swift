@@ -28,9 +28,9 @@ class SignupVC: UIViewController {
                                   textfield: fullNameTextField)
     }()
     
-    lazy var userNameContainerView: InputContainerView = {
-        return InputContainerView(image: UIImage(named: "ic_person_outline_white_2x")!,
-                                  textfield: userNameTextField)
+    lazy var phoneNumberContainerView: InputContainerView = {
+        return InputContainerView(image: UIImage(systemName: "iphone")!,
+                                  textfield: phoneNumberTextField)
     }()
     
     lazy var passwordContainerView: InputContainerView = {
@@ -46,6 +46,8 @@ class SignupVC: UIViewController {
         button.setTitleColor(.systemBlue, for: .normal)
         button.backgroundColor = .white
         button.setHeight(height: 50)
+        button.isEnabled = false
+        button.alpha = 0.5
         return button
     }()
     
@@ -63,18 +65,19 @@ class SignupVC: UIViewController {
         let tf = UITextField()
         tf.placeholder = "Full Name"
         tf.textColor = .white
-        tf.textContentType = .emailAddress
+        tf.textContentType = .name
         tf.attributedPlaceholder = NSAttributedString(string:"Full Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         return tf
     }()
     
-    private let userNameTextField: UITextField = {
+    private let phoneNumberTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Username"
+        tf.placeholder = "Phone Number"
         tf.textColor = .white
-        tf.textContentType = .emailAddress
-        tf.attributedPlaceholder = NSAttributedString(string:"Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        tf.textContentType = .telephoneNumber
+        tf.keyboardType = .numberPad
+        tf.attributedPlaceholder = NSAttributedString(string:"Phone Number", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         return tf
     }()
@@ -105,6 +108,8 @@ class SignupVC: UIViewController {
         return button
     }()
     
+    var signupVM = SignupVM()
+    
     //MARK: - LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,8 +135,8 @@ class SignupVC: UIViewController {
         
         //**** stack here
         let stack = UIStackView(arrangedSubviews: [emailContainerView,
+                                                   phoneNumberContainerView,
                                                    fullNameContainerView,
-                                                   userNameContainerView,
                                                    passwordContainerView,
                                                    signupButton])
         stack.axis = .vertical
@@ -152,6 +157,14 @@ class SignupVC: UIViewController {
         loginLinkButton.anchor(bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
                                        paddingBottom: 20)
         loginLinkButton.addTarget(self, action: #selector(goToLoginButtonPressed), for: .touchUpInside)
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        phoneNumberTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        signupButton.addTarget(self, action: #selector(handleSignup), for: .touchUpInside)
     }
     
     func configureGradientLayerOnView() {
@@ -162,9 +175,46 @@ class SignupVC: UIViewController {
         gradient.frame = self.view.frame
     }
     
+    @objc func checkFormStatus() {
+        if signupVM.formIsValid {
+            signupButton.isEnabled = true
+            signupButton.alpha = 1
+        } else {
+            signupButton.isEnabled = false
+            signupButton.alpha = 0.5
+        }
+    }
+    
     //MARK: - SELECTOR
     @objc func goToLoginButtonPressed() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleSignup() {
+        
+    }
+    
+    @objc func textDidChange(sender: UITextField) {
+        
+        switch sender {
+        case emailTextField:
+            signupVM.email = emailTextField.text
+            break
+        case phoneNumberTextField:
+            signupVM.phoneNumber = phoneNumberTextField.text
+            break
+        case fullNameTextField:
+            signupVM.fullName = fullNameTextField.text
+            break
+        case passwordTextField:
+            signupVM.password = passwordTextField.text
+            break
+        default:
+            break
+        }
+        
+        checkFormStatus()
+        
     }
     
 }

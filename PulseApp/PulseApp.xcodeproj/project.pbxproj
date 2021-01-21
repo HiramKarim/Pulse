@@ -15,6 +15,8 @@
 		1F3BACFA25B40FFA00AF9F7A /* PulseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3BACF925B40FFA00AF9F7A /* PulseAppUITests.swift */; };
 		1F4DF79325B54CE000335283 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4DF79225B54CE000335283 /* Extensions.swift */; };
 		1F87C56B25B5142300FE50AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F87C56A25B5142300FE50AE /* GoogleService-Info.plist */; };
+		1F9FA0FC25B920AB001A320E /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FA0FB25B920AB001A320E /* LoginVM.swift */; };
+		1F9FA10925B94A8C001A320E /* SignupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FA10825B94A8C001A320E /* SignupVM.swift */; };
 		1FAA57CC25B68751000BD490 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA57CB25B68751000BD490 /* LoginVC.swift */; };
 		1FAA57D125B68760000BD490 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA57D025B68760000BD490 /* SignupVC.swift */; };
 		1FAA57D625B6989E000BD490 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA57D525B6989E000BD490 /* InputContainerView.swift */; };
@@ -59,6 +61,8 @@
 		1F3BACFB25B40FFA00AF9F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F4DF79225B54CE000335283 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1F87C56A25B5142300FE50AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F9FA0FB25B920AB001A320E /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		1F9FA10825B94A8C001A320E /* SignupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVM.swift; sourceTree = "<group>"; };
 		1FAA57CB25B68751000BD490 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1FAA57D025B68760000BD490 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
 		1FAA57D525B6989E000BD490 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		1FE1B46125B54EDE0087A7E3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F9FA0FB25B920AB001A320E /* LoginVM.swift */,
+				1F9FA10825B94A8C001A320E /* SignupVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,7 +491,9 @@
 				1FAA57D125B68760000BD490 /* SignupVC.swift in Sources */,
 				1F3BACD825B40FF900AF9F7A /* AppDelegate.swift in Sources */,
 				1FAA57D625B6989E000BD490 /* InputContainerView.swift in Sources */,
+				1F9FA10925B94A8C001A320E /* SignupVM.swift in Sources */,
 				1F3BACDA25B40FF900AF9F7A /* SceneDelegate.swift in Sources */,
+				1F9FA0FC25B920AB001A320E /* LoginVM.swift in Sources */,
 				1F4DF79325B54CE000335283 /* Extensions.swift in Sources */,
 				1FE1B46625B54F3E0087A7E3 /* ConversationsVC.swift in Sources */,
 				1FAA57CC25B68751000BD490 /* LoginVC.swift in Sources */,
